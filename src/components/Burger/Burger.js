@@ -6,7 +6,7 @@ const burger = (props) => {
 
 	// Object.keys(props.ingredients) creates an array of the ingredient strings ['cheese','meat',etc]
 	// We are then going through each item, to be assigned as igKey
-	const transformedIngredients = Object.keys( props.ingredients ).map( igKey => {
+	let transformedIngredients = Object.keys( props.ingredients ).map( igKey => {
 			// Creates an array of for each igKey, with the length = how many types of that ingredient there are
 			// Since prop.ingredients[igKey] gives the numerical value of each ingredient in the state
 			// The content is blank for now, as the length is the important part
@@ -17,7 +17,9 @@ const burger = (props) => {
 		}).reduce( (arr, el) => {
 			return arr.concat(el)
 		}, []);
-		console.log(transformedIngredients)
+	if(transformedIngredients.length === 0){
+		transformedIngredients = <p>Please start adding ingredients!</p>
+	}
 
 	return (
 		<div className={classes.Burger}>
