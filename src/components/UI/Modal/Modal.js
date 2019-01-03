@@ -6,7 +6,7 @@ class Modal extends Component {
 	// The order summary will only re-render when the modal is actually being shown
 	// Order summary is nested inside Modal, so only Modal needs to be dealt with
 	shouldComponentUpdate(nextProps, nextState) {
-		return nextProps.show !== this.props.show
+		return nextProps.show !== this.props.show || nextProps.children !== this.props.children
 	}
 
 	render() {
